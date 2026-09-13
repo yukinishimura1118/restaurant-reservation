@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Reservation;
 
 class Restaurant extends Model
 {
@@ -12,4 +13,9 @@ class Restaurant extends Model
         'genre',
         'description',
     ];
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }
