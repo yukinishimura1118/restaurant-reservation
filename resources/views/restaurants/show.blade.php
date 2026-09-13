@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ $restaurant->name }}</title>
+</head>
+<body>
+
+    <h1>{{ $restaurant->name }}</h1>
+
+    <p>住所：{{ $restaurant->address }}</p>
+
+    <p>ジャンル：{{ $restaurant->genre }}</p>
+
+    <p>説明：{{ $restaurant->description }}</p>
+
+    <a href="/restaurants">飲食店一覧に戻る</a>
+
+</body>
+</html>
