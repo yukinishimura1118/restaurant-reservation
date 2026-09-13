@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\MypageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,5 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+// マイページ
+Route::get('/mypage', [MypageController::class, 'index'])
+    ->middleware('auth');
 
 require __DIR__.'/auth.php';
