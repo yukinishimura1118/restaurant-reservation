@@ -65,3 +65,39 @@ Restaurant Reservation Project
 - 予約一覧表示
 - 予約変更
 - 予約キャンセル
+
+
+### 2026/09/14
+
+#### マイページ機能
+
+* `feature/mypage` ブランチを作成
+* マイページ画面を作成
+* ログインユーザー自身の予約一覧を表示
+* 店名・予約日・予約時間・人数を表示
+* `/mypage` にアクセスできるルートを追加
+* ログイン後にマイページへ移動するように変更
+
+#### GitHub
+
+* `feature/mypage` にコミット
+* GitHubへpush
+* Pull Requestを作成
+* `main` ブランチへMerge
+* マイページ機能のmainへの取り込み完了
+
+#### 動作確認
+
+* ログイン：完了
+* マイページ表示：完了
+* 予約一覧表示：完了
+* GitHubへのpush：完了
+* Pull Request：完了
+* mainへのMerge：完了
+
+#### Gitについて学んだこと
+
+* `feature/mypage` は機能ごとに作る作業用ブランチ
+* Pull Requestは、作業用ブランチの変更をmainへ取り込むための申請
+* Mergeすると、作業用ブランチの変更がmainに取り込まれる
+* Merge後は、不要になったfeatureブランチを削除できる
