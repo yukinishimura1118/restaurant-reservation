@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\ReservationEditController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +22,12 @@ Route::get('/restaurants/{restaurant}/reservations/create', [ReservationControll
     ->middleware('auth');
 
 Route::post('/reservations', [ReservationController::class, 'store'])
+    ->middleware('auth');
+
+Route::get('/reservations/{reservation}/edit', [ReservationEditController::class, 'edit'])
+    ->middleware('auth');
+
+ Route::put('/reservations/{reservation}', [ReservationEditController::class, 'update'])
     ->middleware('auth');
 
 // プロフィール

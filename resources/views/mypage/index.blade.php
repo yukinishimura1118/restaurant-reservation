@@ -17,6 +17,9 @@
             <p>予約日：{{ $reservation->reservation_date }}</p>
             <p>予約時間：{{ $reservation->reservation_time }}</p>
             <p>人数：{{ $reservation->number_of_people }}人</p>
+            <a href="/reservations/{{ $reservation->id }}/edit">
+                予約変更
+            </a>
         </div>
 
         <hr>
