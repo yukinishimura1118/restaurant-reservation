@@ -14,6 +14,10 @@
 
     <p>説明：{{ $restaurant->description }}</p>
 
+    <a href="/restaurants/{{ $restaurant->id }}/reservations/create">
+        予約する
+    </a>
+
     <a href="/restaurants">飲食店一覧に戻る</a>
 
 </body>
