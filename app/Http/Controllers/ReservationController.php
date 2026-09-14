@@ -14,16 +14,22 @@ class ReservationController extends Controller
     }
     public function store(Request $request)
     {
-    $reservation = new Reservation();
+        $request->validate([
+            'reservation_date' => ['required', 'date'],
+            'reservation_time' => ['required'],
+            'number_of_people' => ['required', 'integer', 'min:1'],
+        ]);
 
-    $reservation->user_id = auth()->id();
-    $reservation->restaurant_id = $request->restaurant_id;
-    $reservation->reservation_date = $request->reservation_date;
-    $reservation->reservation_time = $request->reservation_time;
-    $reservation->number_of_people = $request->number_of_people;
+        $reservation = new Reservation();
 
-    $reservation->save();
+        $reservation->user_id = auth()->id();
+        $reservation->restaurant_id = $request->restaurant_id;
+        $reservation->reservation_date = $request->reservation_date;
+        $reservation->reservation_time = $request->reservation_time;
+        $reservation->number_of_people = $request->number_of_people;
 
-    return redirect('/restaurants/' . $reservation->restaurant_id);
+        $reservation->save();
+
+        return redirect('/restaurants/' . $reservation->restaurant_id);
     }
 }
