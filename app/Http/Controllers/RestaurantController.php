@@ -34,4 +34,20 @@ class RestaurantController extends Controller
     {
     return view('restaurants.show', compact('restaurant'));
     }
+    public function edit(Restaurant $restaurant)
+    {
+    return view('restaurants.edit', compact('restaurant'));
+    }
+
+    public function update(Request $request, Restaurant $restaurant)
+    {
+    $restaurant->name = $request->name;
+    $restaurant->address = $request->address;
+    $restaurant->genre = $request->genre;
+    $restaurant->description = $request->description;
+
+    $restaurant->save();
+
+    return redirect('/restaurants/' . $restaurant->id);
+    }
 }
