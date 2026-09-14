@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\ReservationEditController;
+use App\Http\Controllers\ReservationCancelController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +33,15 @@ Route::middleware('auth')->group(function () {
 });
 // マイページ
 Route::get('/mypage', [MypageController::class, 'index'])
+    ->middleware('auth');
+//予約変更
+Route::get('/reservations/{reservation}/edit', [ReservationEditController::class, 'edit'])
+    ->middleware('auth');
+Route::put('/reservations/{reservation}', [ReservationEditController::class, 'update'])
+    ->middleware('auth');
+
+// 予約キャンセル
+Route::delete('/reservations/{reservation}', [ReservationCancelController::class, 'destroy'])
     ->middleware('auth');
 
 require __DIR__.'/auth.php';
