@@ -17,6 +17,12 @@
     <a href="/restaurants/{{ $restaurant->id }}/reservations/create">
         予約する
     </a>
+    <form action="/restaurants/{{ $restaurant->id }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <button type="submit">削除する</button>
+    </form>
 
     <a href="/restaurants">飲食店一覧に戻る</a>
 

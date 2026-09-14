@@ -19,6 +19,7 @@ Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show']);
 Route::post('/restaurants', [RestaurantController::class, 'store']);
 Route::get('/restaurants/{restaurant}/edit', [RestaurantController::class, 'edit']);
 Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update']);
+Route::delete('/restaurants/{id}', [RestaurantController::class, 'destroy']);
 
 // 予約
 Route::get('/restaurants/{restaurant}/reservations/create', [ReservationController::class, 'create'])

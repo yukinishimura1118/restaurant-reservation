@@ -50,4 +50,12 @@ class RestaurantController extends Controller
 
     return redirect('/restaurants/' . $restaurant->id);
     }
+    public function destroy($id)
+{
+    $restaurant = Restaurant::findOrFail($id);
+
+    $restaurant->delete();
+
+    return redirect('/restaurants');
+}
 }
