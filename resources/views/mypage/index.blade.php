@@ -20,6 +20,18 @@
             <a href="/reservations/{{ $reservation->id }}/edit">
                 予約変更
             </a>
+
+            <form
+             action="/reservations/{{ $reservation->id }}"
+             method="POST"
+             onsubmit="return confirm('この予約をキャンセルしてもよろしいですか？')"
+            >
+             @csrf
+             @method('DELETE')
+
+             <button type="submit">予約キャンセル</button>
+</form>
+
         </div>
 
         <hr>
