@@ -17,12 +17,13 @@
     <a href="/restaurants/{{ $restaurant->id }}/reservations/create">
         予約する
     </a>
-    <form action="/restaurants/{{ $restaurant->id }}" method="POST">
-        @csrf
-        @method('DELETE')
+    <form action="/restaurants/{{ $restaurant->id }}" method="POST"
+        onsubmit="return confirm('この飲食店を削除してもよろしいですか？');">
+      @csrf
+      @method('DELETE')
 
-        <button type="submit">削除する</button>
-    </form>
+      <button type="submit">削除する</button>
+  </form>
 
     <a href="/restaurants">飲食店一覧に戻る</a>
 
