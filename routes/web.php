@@ -25,18 +25,14 @@ Route::get('/restaurants/{restaurant}/reservations/create', [ReservationControll
 Route::post('/reservations', [ReservationController::class, 'store'])
     ->middleware('auth');
 
-// プロフィール
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 // マイページ
 Route::get('/mypage', [MypageController::class, 'index'])
     ->middleware('auth');
-//予約変更
+
+// 予約変更
 Route::get('/reservations/{reservation}/edit', [ReservationEditController::class, 'edit'])
     ->middleware('auth');
+
 Route::put('/reservations/{reservation}', [ReservationEditController::class, 'update'])
     ->middleware('auth');
 
@@ -44,4 +40,12 @@ Route::put('/reservations/{reservation}', [ReservationEditController::class, 'up
 Route::delete('/reservations/{reservation}', [ReservationCancelController::class, 'destroy'])
     ->middleware('auth');
 
+// プロフィール
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 require __DIR__.'/auth.php';
+

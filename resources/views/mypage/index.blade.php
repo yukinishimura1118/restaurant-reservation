@@ -20,6 +20,7 @@
             <a href="/reservations/{{ $reservation->id }}/edit">
                 予約変更
             </a>
+
             <form
              action="/reservations/{{ $reservation->id }}"
              method="POST"
@@ -30,6 +31,7 @@
 
              <button type="submit">予約キャンセル</button>
 </form>
+
         </div>
 
         <hr>
